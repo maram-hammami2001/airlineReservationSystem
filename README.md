@@ -76,31 +76,32 @@ int mainmenu()
 	color(9, 0);
 	printf("=====================================================================   M   E  N  U        P  R  I  N  C  I  P  A  L  E   =======================================================================================\n");
 	color(2, 0);
-	printf("                                       =                                                                                         =\n");
-	printf("                                       =                                                                                         =\n");
-	printf("                                       =                                                                                         =\n");
-	printf("                                       =   V E U I L L E Z    C H O I S I R   U N E   O P T I O N :                              =\n");
-	printf("                                       =                                                                                         =\n");
-	printf("                                       =                                                                                         =\n");
-	printf("                                       =                                                                                         =\n");
-	printf("                                       =        1)GESTIONNAIRE DES VOLS                                                          =\n");
-	printf("                                       =                                                                                         =\n");
-	printf("                                       =                                                                                         =\n");
-	printf("                                       =        2)GESTIONNAIRE DES PASSAGERS                                                     =\n");
-	printf("                                       =                                                                                         =\n");
-	printf("                                       =                                                                                         =\n");
-	printf("                                       =        3)GESTIONNAIRE DES RESERVATION                                                   =\n");
-	printf("                                       =                                                                                         =\n");
-	printf("                                       =                                                                                         =\n");
-	printf("                                       =        4) Quitter                                                                       =\n");
-	printf("                                       =                                                                                         =\n");
-	printf("                                       =                                                                                         =\n");
-	printf("                                       ===========================================================================================\n");
+	printf("                                       =                                                                                                                    =\n");
+	printf("                                       =                                                                                                                    =\n");
+	printf("                                       =                                                                                                                    =\n");
+	printf("                                       =                              V E U I L L E Z    C H O I S I R   U N E   O P T I O N :                              =\n");
+	printf("                                       =                                                                                                                    =\n");
+	printf("                                       =                                                                                                                    =\n");
+	printf("                                       =                                                                                                                    =\n");
+	printf("                                       =                                            1)GESTIONNAIRE DES VOLS                                                 =\n");
+	printf("                                       =                                                                                                                    =\n");
+	printf("                                       =                                                                                                                    =\n");
+	printf("                                       =                                            2)GESTIONNAIRE DES PASSAGERS                                            =\n");
+	printf("                                       =                                                                                                                    =\n");
+	printf("                                       =                                                                                                                    =\n");
+	printf("                                       =                                            3)GESTIONNAIRE DES RESERVATION                                          =\n");
+	printf("                                       =                                                                                                                    =\n");
+	printf("                                       =                                                                                                                    =\n");
+	printf("                                       =                                            4) Quitter                                                              =\n");
+	printf("                                       =                                                                                                                    =\n");
+	printf("                                       =                                                                                                                    =\n");
+	printf("                                       ======================================================================================================================\n");
 	color(6, 0);
 
 	printf(" \n");
 	printf("                                                                      Veuillez donner votre choix ===> \t");
 	scanf_s("%d", &c);
+
 
 	switch (c) {
 	case 1:
@@ -114,7 +115,8 @@ int mainmenu()
 	case 3:
 		option3();
 		break;
-	case 4:   quitter();
+	case 4:  
+		quitter();
 
 		break;
 
@@ -130,7 +132,6 @@ int mainmenu()
 
 
 }
-
 
 
 int option1() {
@@ -188,6 +189,7 @@ int option1() {
 	}
 	return 0;
 }
+
 int affiche1(int vol1, int vol2, int vol3, int vol4, int vol5)
 {
 	int  getch(), rep;//why getch is definied here
@@ -297,13 +299,16 @@ int affiche1(int vol1, int vol2, int vol3, int vol4, int vol5)
 
 int annuler(int vol1, int vol2, int vol3, int vol4, int vol5)
 {
-	int choix, value; char vol1s[20], r1[5], r2[5] = { 'oui' };
+	int choix, value;
+	char vol1s[20]{};
+	char r1[5]{};
+	char r2[5] = { "oui" };
 	system("cls");
 	color(9, 0);
 	printf("\n");
 
 	puts("=================================================  A  N  N  U  L  A  T  I  O  N       D  E  S       V  O  L  S ! ============================================================================");
-	color(2,0);
+	color(2, 0);
 	printf("                                                                             .\n");
 	printf("                                                                             .\n");
 	printf("                                                                             .\n");
@@ -354,7 +359,7 @@ int annuler(int vol1, int vol2, int vol3, int vol4, int vol5)
 		printf("    \n");
 
 		printf("                                                                   VOULEZ VOUS VRAIMENT ANNULER LE PREMIER VOL ? ");
-		scanf_s("%s", &r1);
+		/*scanf_s("%s", &r1);
 
 		value = strcmp(r1, r2);//a predefined function  to compare whether r1 which is the input oui is the same as r2 which is oui by default and thereafter recieves 1 if they are the same
 		if (value == 1)
@@ -364,7 +369,7 @@ int annuler(int vol1, int vol2, int vol3, int vol4, int vol5)
 
 
 		; break;
-		/* case 2:
+		   case 2:
 
 			 ;
 			 break;
@@ -395,19 +400,39 @@ void option2() {
 	int getch();
 	system("cls");
 	color(9, 0);
-	puts("===============================================GESTIONNAIRE DE PASSAGERS!===============================================");
-	puts("\t\tvotre options:\n");
-	puts("\t\t\t  ///////////////////////////////////////////");
-	printf("\t\t\t // 1)Liste des passagers                  //\n");
-	printf("\t\t\t // 2) chercher un passager                //\n ");
-	printf("\t\t\t // 3) modifier les informations           //\n ");
-	printf("\t\t\t //  du passager                           //\n ");
-	printf("\t\t\t // 4) Supprimer un passager               //\n ");
-	printf("\t\t\t // 5) Retour au menu principale           //\n");
-	puts("\t\t\t  //////////////////////////////////////////");
-	printf("Veuillez donner votre choix:");
+	puts("  ");
+	puts("  ");
+	puts("  ");
+	puts("=================================================  G  E  S  T  I  O  N  N  A  I  R  E      D  E     P  A  S  S  A  G  E  R  S    ! =================================================================");
+	color(2, 0);
+	printf("                                       =                                                                                                   =\n");
+	printf("                                       =                                                                                                   =\n");
+	printf("                                       =                                                                                                   =\n");
+	printf("                                       =                    V E U I L L E Z    C H O I S I R   U N E   O P T I O N :                       =\n");
+	printf("                                       =                                                                                                   =\n");
+	printf("                                       =                                                                                                   =\n");
+	printf("                                       =                                                                                                   =\n");
+	printf("                                       =        1)LISTE DES PASSAGERS                                                                      =\n");
+	printf("                                       =                                                                                                   =\n");
+	printf("                                       =                                                                                                   =\n");
+	printf("                                       =        2)CHERCHER UN PASSAGER                                                                     =\n");
+	printf("                                       =                                                                                                   =\n");
+	printf("                                       =                                                                                                   =\n");
+	printf("                                       =        3)MODIFIER LES DONNEES DU PASSAGER                                                         =\n");
+	printf("                                       =                                                                                                   =\n");
+	printf("                                       =                                                                                                   =\n");
+	printf("                                       =        4)SUPPRIMER UN PASSAGER                                                                    =\n");
+	printf("                                       =                                                                                                   =\n");
+	printf("                                       =                                                                                                   =\n");
+	printf("                                       =        5)RETOUNRER AU MENU PRINCIPAL                                                              =\n");
+	printf("                                       =                                                                                                   =\n");
+	printf("                                       =====================================================================================================\n");
+	printf(" \n");
+	color(6, 0);
+	printf("                                                                       donner votre choix ===> \t");
 	scanf_s("%d", &c);
-	switch (c) {
+	switch (c) 
+	{
 
 
 	case 1: affichepassager();
@@ -419,43 +444,114 @@ void option2() {
 		break;
 	}
 }
-void option3() {
-	void reserver();
+ void option3()
+    {
+	int reserver();
 	int getch();
 	system("cls");
 
 	int c;
-	color(13, 0);
-	puts("==========================================Reservation de vol!====================================================");
-	printf("\t\tvotre options:\n");
-	puts("\t\t\t  ///////////////////////////////////////////");
-	printf("\t\t\t // 1)Veuillez voyager? Reserver votre     //\n");
-	printf("\t\t\t //    place maintenant!                   //\n");
-	printf("\t\t\t // 2) Retour au menu principale           //\n");
-	puts("\t\t\t  //////////////////////////////////////////");
-	printf("\tVeuillez donner votre choix:");
+	color(9, 0);
+	puts("  ");
+	puts("  ");
+	puts("  ");
+	puts("=================================================  G  E  S  T  I  O  N  N  A  I  R  E        D  E      R  E  S  E  R  V  A  T  I  O  N  ! ============================================================================");
+	color(2, 0);
+	printf("                                       =                                                                                                        =\n");
+	printf("                                       =                                                                                                        =\n");
+	printf("                                       =                                                                                                        =\n");
+	printf("                                       =                                                                                                        =\n");
+	printf("                                       =                                                                                                        =\n");
+	printf("                                       =                                    1)RESERVER UNE PLACE                                                =\n");
+	printf("                                       =                                                                                                        =\n");
+	printf("                                       =                                                                                                        =\n");
+	printf("                                       =                                                                                                        =\n");
+	printf("                                       =                                                                                                        =\n");
+	printf("                                       =                                  2)RETOUR AU MENU PRINCIPAL                                            =\n");
+	printf("                                       =                                                                                                        =\n");
+	printf("                                       =                                                                                                        =\n");
+	printf("                                       ==========================================================================================================\n");
+	printf(" \n");
+	color(6, 0);
+	printf("                                                                      Veuillez donner votre choix ===> \t");
+	
 	scanf_s("%d", &c);
 	switch (c) {
 	case 1: reserver(); break;
 	case 2: int getch(); system("cls"); mainmenu(); break;
 	}
-	;
+	
+}
+int verifnom(char a[100]) {
+	if (strcmp(a, "") == 0 && strcmp(a, "1234567890") == 0 && strcmp(a, " ") == 0 && strlen(a) <= 20) return 1;
+	else return 0;
+
+}
+int verifdate(int dd, int mm, int yy)
+{
+
+	//verifions l'annee
+	if (yy >= 1900 && yy <= 9999)
+	{
+		//verifions le mois
+		if (mm >= 1 && mm <= 12)
+		{
+			//verifions le jour
+			if ((dd >= 1 && dd <= 31) && (mm == 1 || mm == 3 || mm == 5 || mm == 7 || mm == 8 || mm == 10 || mm == 12))
+			{
+				printf("Date is valid.\n");
+				return 1;
+			}
+			else if ((dd >= 1 && dd <= 30) && (mm == 4 || mm == 6 || mm == 9 || mm == 11))
+			{
+				printf("Date is valid.\n"); return 1;
+			}
+			else if ((dd >= 1 && dd <= 28) && (mm == 2))
+			{
+				printf("Date is valid.\n");
+				return 1;
+			}
+			else if (dd == 29 && mm == 2 && (yy % 400 == 0 || (yy % 4 == 0 && yy % 100 != 0)))
+				printf("Date is valid.\n");
+			else
+			{
+				printf("Day is invalid.\n"); return 0;
+			}
+		}
+		else
+		{
+			printf("Month is not valid.\n"); return 0;
+		}
+	}
+	else
+	{
+		printf("Year is not valid.\n");
+		return 0;
+	}
+
+
 }
 
-void reserver() {
+int reserver()
+{
 	int getch(); system("cls");
-	char nom[11]{};
-	int result = 0;
+	char nom[100]{};
+	int dd = 0, mm = 0, yy = 0;
+
 	color(12, 0);
 	puts("==========================================Bienvenue au Fomulaire du reservation!========================================");
 
 	do {
-		printf("==>Veuillez donner votre Nom:");
+		printf("      => Veuillez donner le Nom du passager: \n");
 		gets_s(nom);
-		result = isspace(*nom);
-	} while (!(result == 0 && strlen(nom) >= 10));
+	} while (verifnom(nom) == 0);
+	do {
+		printf(" => Veuiller Enter la date de naissance (sous la forme DD/MM/YYYY): ");
+		scanf_s("%d/%d/%d", &dd, &mm, &yy);
 
+	} while (verifdate(dd, mm, yy) == 0);
 
+	return 0;
 
 }
 
