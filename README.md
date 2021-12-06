@@ -136,7 +136,7 @@ int mainmenu()
 
 
 int option1() {
-	int vol1 = 0, vol2 = 3, vol3 = 3, vol4 = 3, vol5 = 3, c, getch();
+	int vol1 = 3, vol2 = 3, vol3 = 3, vol4 = 3, vol5 = 3, c, getch();
 	int affiche1(int vol1, int vol2, int vol3, int vol4, int vol5);
 	int annuler(int vol1, int vol2, int vol3, int vol4, int vol5);
 	system("cls");
@@ -605,7 +605,59 @@ int verifcode(char a[8]) {
 
 	}
 }
+// FONCTION QUI PERMET DE VERIFIT EST CE QUE LE VOL EST DISPO OU NN
+int dispo(int numvol)
+{
+	
+	int vol1, vol2, vol3, vol4, vol5;
+	if (numvol==1 && vol1)
+	{
+		return 0; 
+	}
 
+	if (numvol == 2 && vol2)
+	{
+		return 0;
+	}
+	if (numvol == 3 && vol3)
+	{
+		return 0;
+	}
+	if (numvol == 4 && vol4)
+	{
+		return 0;
+	}
+	if (numvol == 5 && vol5)
+	{
+		return 0;
+	}
+	
+}
+// LA FONCTION POUR VERIFIER EST CE QUE LE NUMERO DE VOL EST VALIDE OU NON
+int verifnumvol(int numvol)
+{
+	int dispo() ;
+	if ((numvol <= 0 || numvol > 5))
+	
+		{	
+		printf("num de vols n'existe pas"); 
+	     }
+
+    	  
+	else
+		if (dispo() == 0)
+
+		{
+			printf("le vol numero %d a ete choisit avec succees", numvol);
+		}
+		else
+	{
+		printf("il n'ya plus de places disponibles sur le vol numéro %d", numvol);
+	}
+		
+	
+	return 0; 
+}
 /*void affichepassager(char tabpassager[6][6], int tabdate[20][3]) {
 
 	int	i = 0, j = 0;
@@ -623,10 +675,10 @@ int reserver()
 	int getch(); system("cls");
 	char nom[100]{};
 	char sexe[100]{};
-	int dd = 0, mm = 0, yy = 0;
+	int dd = 0, mm = 0, yy = 0,numvol;
 	char cin[10]{};
 	char code[10]{};
-
+	int verifnumvol() ; 
 	;
 	color(12, 0);
 	puts("==========================================Bienvenue au Fomulaire du reservation!========================================");
@@ -650,6 +702,8 @@ int reserver()
 		 
 	} while (verifsexe(sexe) == 0);
 	//VERIF NUMERO DE VOLS
+	printf("entrer le numero de vol ");
+	scanf_s("%d", &numvol);
 	
     // VERIF CIN
 	do {
@@ -682,21 +736,6 @@ void retour1() {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 void quitter() {
 	int c;
 	int getch();
