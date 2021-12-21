@@ -5,6 +5,15 @@
 #include<string>
 #include<conio.h>
 #include<ctype.h>
+
+struct vol {
+	int nv; //numero de vol
+	char dep[10]; //pays depart
+	char ar[20];  //pays arrnivée
+	char ddep[20]; //date depart
+	char dar[20];  //date arrivée
+	int np;  //nombre de place valable
+};
  void color(int t, int f)
 {
 	HANDLE H = GetStdHandle(STD_OUTPUT_HANDLE); //fonction appartenant a la biblio windows.h permettant la modificationdes couleur
@@ -136,9 +145,10 @@ int mainmenu()
 
 
 int option1() {
-	int vol1 = 3, vol2 = 3, vol3 = 3, vol4 = 3, vol5 = 3, c, getch();
-	int affiche1(int vol1, int vol2, int vol3, int vol4, int vol5);
-	int annuler(int vol1, int vol2, int vol3, int vol4, int vol5);
+	int c; 
+	struct vol vol1, vol2, vol3, vol4, vol5; 
+	int affiche1(struct vol vol1, struct vol vol2, struct vol vol3, struct vol vol4, struct vol vol5);
+	int annuler(struct vol vol1, struct vol vol2, struct vol vol3, struct vol vol4, struct vol vol5);
 	system("cls");
 
 
@@ -176,12 +186,12 @@ int option1() {
 	scanf_s("%d", &c);
 	switch (c) {
 	case 1:
-		affiche1(vol1, vol2, vol3, vol4, vol5);
+		affiche1();
 		break;
 	case 2:
-		annuler(vol1, vol2, vol3, vol4, vol5); break;
+		annuler(); break;
 	case 4:
-		getch();
+		_getch();
 		system("cls");
 		mainmenu();
 		break;
@@ -191,7 +201,7 @@ int option1() {
 	return 0;
 }
 
-int affiche1(int vol1, int vol2, int vol3, int vol4, int vol5)
+int affiche1(struct vol vol1, struct vol vol2, struct vol vol3, struct vol vol4, struct vol vol5)
 {
 	int  getch(), rep;//why getch is definied here
 	system("cls");
@@ -210,74 +220,58 @@ int affiche1(int vol1, int vol2, int vol3, int vol4, int vol5)
 	puts(" ");
 	puts(" ");
 	puts(" ");
-	color(2, 0);
-	printf("              DE              A                DEPART               RETOUR                   CLASSE DE CABINE            Nombre de place valable            \n");
+	color(2, 0); 
+	printf("                             DE                    A                       DEPART                    RETOUR                                     Nombre de place valable( CLASSE DE CABINE( 1 ADULTE,ECONOMIQUE) )            \n");
 	printf("\n");
 	printf("\n");
-
-	printf("\n");
-
-	printf("           TUNISIE         DJERBA             05/12/2021          12/12/2021                 1 ADULTE,ECONOMIQUE     \t");
-	if (vol1 == 0)
+	vol1 = { 1,"Tunisie","Canada", "10/1/2021","20/1/2022",3};
+	if (vol1.np == 0)
 	{
-		printf("no more available seats\n");
+		printf("     vol : %d               %s                   %s                        %s                        %s                                                no more available seats             \t",vol1.nv,vol1.dep,vol1.ar,vol1.ddep,vol1.dar);
 	}
 	else
-	{
-		printf("     %d\n    ", vol1);
-	};
-	printf("\n");
-	printf("\n");
-	printf("\n");
+		printf("      vol : %d              %s                   %s                        %s                        %s                                                %d                                 \t",vol1.nv ,vol1.dep, vol1.ar, vol1.ddep, vol1.dar,vol1.np);
 
-	printf("           TUNISIE         EGYPT              06/12/2021          13/12/2021                 1 ADULTE,ECONOMIQUE     \t");
-	if (vol2 == 0)
+	printf("\n");
+	vol2 = {2,"Tunisie","Egypt", "11/1/2021","21/1/2022",90 };
+	if (vol2.np == 0)
 	{
-		printf("no more available seats\n");
+		printf("     vol : %d               %s                    %s                        %s                       %s                                               no more available seats             \t",vol2.nv ,vol2.dep, vol2.ar, vol2.ddep, vol2.dar);
 	}
 	else
-	{
-		printf("     %d\n    ", vol2);
-	};
-	printf("\n");
-	printf("\n");
-	printf("\n");
+		printf("     vol : %d               %s                   %s                         %s                        %s                                                %d                                 \t",vol2.nv ,vol2.dep, vol2.ar, vol2.ddep, vol2.dar, vol2.np);
 
-	printf("          TUNISIE         FRANCE             07/12/2021          14/12/2021                 1 ADULTE,ECONOMIQUE     \t");
-	if (vol3 == 0)
+	printf("\n");
+	vol3 = {3,"Tunisie","greece", "12/1/2021","22/1/2022",100 };
+	if (vol3.np == 0)
 	{
-		printf("no more available seats\n");
+		printf("    vol : %d                %s                   %s                        %s                         %s                                               no more available seats             \t",vol3.nv ,vol3.dep, vol3.ar, vol3.ddep, vol3.dar);
 	}
 	else
-	{
-		printf("     %d\n    ", vol3);
-	};
-	printf("\n");
-	printf("\n");
-	printf("\n");
+		printf("     vol : %d               %s                   %s                        %s                         %s                                                %d                                 \t", vol3.nv,vol3.dep, vol3.ar, vol3.ddep, vol3.dar, vol3.np);
 
-	printf("          TUNISIE         MALTA              08/12/2021          15/12/2021                 1 ADULTE,ECONOMIQUE     \t");
-	if (vol4 == 0)
+	printf("\n");
+	vol4 = { 4, "Tunisie","France", "20/1/2021","30/1/2022",3 };
+	if (vol4.np == 0)
 	{
-		printf("no more available seats\n");
+		printf("      vol : %d              %s			         %s					      %s					      %s                                               no more available seats             \t", vol4.nv,vol4.dep, vol4.ar, vol4.ddep, vol4.dar);
 	}
 	else
-	{
-		printf("     %d\n    ", vol4);
-	};
-	printf("\n");
-	printf("\n");
-	printf("\n");
+		printf("      vol : %d              %s                   %s                       %s                          %s                                                 %d                                 \t", vol4.nv,vol4.dep, vol4.ar, vol4.ddep, vol4.dar, vol4.np);
 
-	printf("          TUNISIE         GREECE             10/12/2021          16/12/2021                 1 ADULTE,ECONOMIQUE     \t");
-	if (vol5 == 0)
+	printf("\n");
+	vol5 = {5,"Tunisie","Allemagne", "30/1/2021","9/2/2022",3 };
+	if (vol1.np == 0)
 	{
-		printf("no more available seats\n");
+		printf("      vol : %d             %s                    %s                       %s                          %s                                               no more available seats             \t", vol5.nv,vol5.dep, vol5.ar, vol5.ddep, vol5.dar);
 	}
 	else
-	{
-		printf("     %d\n    ", vol5);
-	};
+		printf("      vol : %d             %s                    %s                       %s                          %s                                                %d                                 \t", vol5.nv,vol5.dep, vol5.ar, vol5.ddep, vol5.dar, vol5.np);
+
+	
+
+	printf("\n");
+
 	printf("\n");
 	printf("\n");
 	printf("\n");
@@ -291,7 +285,6 @@ int affiche1(int vol1, int vol2, int vol3, int vol4, int vol5)
 	if (rep == 1)
 	{
 		system("cls");
-		option1();
 	}
 	//problem when the rep is not 1 the program should be closed by typing enter, didn't work find a way xDD
 	return 0;
@@ -300,9 +293,11 @@ int affiche1(int vol1, int vol2, int vol3, int vol4, int vol5)
 
 
 
-int annuler(int vol1, int vol2, int vol3, int vol4, int vol5)
+int annuler(struct vol vol1, struct vol vol2, struct vol vol3, struct vol vol4, struct vol vol5)
 {
-	int choix;// value;
+	char oui[5] = {"oui"};
+	int choix;// numero de vol 
+	char on[5]; // on stands for oui non
 	char vol1s[20]{};
 	char r1[5]{};
 	char r2[5] = { "oui" };
@@ -310,7 +305,7 @@ int annuler(int vol1, int vol2, int vol3, int vol4, int vol5)
 	color(9, 0);
 	printf("\n");
 
-	puts("=================================================  A  N  N  U  L  A  T  I  O  N       D  E  S       V  O  L  S ! ============================================================================");
+	puts("=============================================================  A  N  N  U  L  A  T  I  O  N       D  E  S       V  O  L  S ! ============================================================================");
 	color(2, 0);
 	printf("                                                                             .\n");
 	printf("                                                                             .\n");
@@ -318,32 +313,31 @@ int annuler(int vol1, int vol2, int vol3, int vol4, int vol5)
 	printf("                                                          QUELLE EST LE VOL QUE VOUS DEVEZ ANNULER ?");
 	puts("");
 	puts("");
+	printf("                             DE                    A                       DEPART                    RETOUR                                     Nombre de place valable( CLASSE DE CABINE( 1 ADULTE,ECONOMIQUE) )            \n");
+	printf("\n");
+	printf("\n");
+	vol1 = { 1,"Tunisie","Canada", "10/1/2021","20/1/2022",3 };
+		printf("      vol : %d              %s                   %s                        %s                        %s                                                %d                                 \t", vol1.nv, vol1.dep, vol1.ar, vol1.ddep, vol1.dar, vol1.np);
+	printf("\n");
+	vol2 = { 2,"Tunisie","Egypt", "11/1/2021","21/1/2022",90 };
+	
+		printf("     vol : %d               %s                   %s                         %s                        %s                                                %d                                 \t", vol2.nv, vol2.dep, vol2.ar, vol2.ddep, vol2.dar, vol2.np);
+		printf("\n");
 
-	puts("");
-	printf("                                      1==>TUNISIE         DJERBA             05/12/2021          12/12/2021                 \n");
-	puts("");
-	puts("");
+		printf("     vol : %d               %s                   %s                        %s                         %s                                                %d                                 \t", vol3.nv, vol3.dep, vol3.ar, vol3.ddep, vol3.dar, vol3.np);
+	printf("\n");
+	vol4 = { 4, "Tunisie","France", "20/1/2021","30/1/2022",3 };
+		printf("      vol : %d              %s                   %s                        %s                          %s                                               %d                                 \t", vol4.nv, vol4.dep, vol4.ar, vol4.ddep, vol4.dar, vol4.np);
+	printf("\n");
+	vol5 = { 5,"Tunisie","Allemagne", "30/1/2021","9/2/2022",3 };
+		printf("      vol : %d             %s                    %s                       %s                          %s                                                %d                                 \t", vol5.nv, vol5.dep, vol5.ar, vol5.ddep, vol5.dar, vol5.np);
 
-	printf("                                      2==>TUNISIE         ALMAGNE               06/12/2021          13/12/2021                 \n");
-	puts("");
-
-	puts("");
-	printf("                                      3==>TUNISIE         FRANCE             07/12/2021          14/12/2021                 \n");
-	puts("");
-
-	puts("");
-	printf("                                      4==>TUNISIE         MALTA              08/12/2021          15/12/2021                 \n");
-	puts("");
-
-	puts("");
-	printf("                                      5==>TUNISIE         GREECE             10/12/2021          16/12/2021                 \n");
-	puts("");
-
+		printf("donner le numero de vol que vous voulez annuler");
 	scanf_s("%d", &choix);
-	switch (choix)
-	{
-	case 1:
+	system("cls");
 
+	if (choix<6 || choix>0)
+	{
 		system("cls");
 		color(12, 0);
 
@@ -360,36 +354,28 @@ int annuler(int vol1, int vol2, int vol3, int vol4, int vol5)
 		printf("                                                                                            .\n");
 		printf("                                                                                            .\n");
 		printf("    \n");
+		printf("    \n");
 
-		printf("                                                                   VOULEZ VOUS VRAIMENT ANNULER LE PREMIER VOL ? ");
-		/*gets_s("%s", &r1);
+		printf("                                                                   VOULEZ VOUS VRAIMENT ANNULER LE %d VOL ? ",choix);
+		printf("    \n");
+		printf("    \n");
 
-		value = strcmp(r1, r2);//a predefined function  to compare whether r1 which is the input oui is the same as r2 which is oui by default and thereafter recieves 1 if they are the same
-		if (value == 1)
+		printf("                                                                                   oui / non               ");
+	
+		gets_s(on); 
+		if (strcmp(on,oui ))
 		{
-			printf("LA PREMIERE VOL A ETE ANNULER AVEC SUCCEES :>");
+
 		}
-
-
-		; break;
-		   case 2:
-
-			 ;
-			 break;
-		 case 3:
-
-			 ;
-			 break;
-		 case 4:
-
-			 ;
-			 break;
-		 case 5:
-
-			 ;
-			 break;*/
+		else
+		{
+			mainmenu();
+		}
 	}
-
+	
+	else
+		printf("vol numero %d n'existe pas",choix);
+	
 	return 0;
 }
 
@@ -719,6 +705,7 @@ int reserver()
 		confirmer(nom, dd, mm, yy, sexe, cin, code);
 	return 0;
 }
+
 void retour1() {
 	int c;
 	printf("\t\t\t              |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n");
@@ -770,3 +757,6 @@ int main()
 
 	return 0;
 }
+
+
+
