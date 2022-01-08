@@ -17,7 +17,7 @@ struct vol {
 	int nv; //numero de vol
 	char dep[10]; //pays depart
 	char ar[20];  //pays d'arrvée/destination
-	int  jdep; //jours de depart
+	int  jdep; //jours de depart 
 	int mdep;//mois de depart
 	int adep; // Année de depart
 	int  jar; //jours d'arrivée
